@@ -4,9 +4,6 @@ from jetcam.csi_camera import CSICamera
 # for USB Camera (Logitech C270 webcam), uncomment the following line
 camera = USBCamera(width=224, height=224, capture_device=0) # confirm the capture_device number
 
-# for CSI Camera (Raspberry Pi Camera Module V2), uncomment the following line
-# camera = CSICamera(width=224, height=224, capture_device=0) # confirm the capture_device number
-
 camera.running = True
 print("camera created")
 
