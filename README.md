@@ -2,7 +2,7 @@ This is code for our vending machine project.
 It consists of data collection, training, and testing. Most of this code is provided by NVIDIA Deep Learning Institute (DLI) code. 
 It is designed to be run on the Jetson Nano in conjunction with the detailed instructions provided in the online DLI course pages. 
 
-There is also code written specifically for the aurdiono which is in charge of operating the motors.
+There is also code written specifically for the arduino which is in charge of operating the motors.
 
 Parts list:
   Arduino Uno
