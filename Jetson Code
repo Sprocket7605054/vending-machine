@@ -7,21 +7,18 @@ camera = USBCamera(width=224, height=224, capture_device=0) # confirm the captur
 camera.running = True
 print("camera created")
 
+
+# setting up the program for the ai
 import torchvision.transforms as transforms
 from dataset import ImageClassificationDataset
 
-# TASK = 'thumbs'
-# TASK = 'emotions'
 TASK = 'fingers'
-# TASK = 'diy'
 
-#CATEGORIES = ['thumbs_up', 'thumbs_down']
-# CATEGORIES = ['none', 'happy', 'sad', 'angry']
-CATEGORIES = ['1', '2', '3']
-# CATEGORIES = [ 'diy_1', 'diy_2', 'diy_3']
+CATEGORIES = ['1', '2', '3','4']
+
 
 DATASETS = ['A', 'B']
-# DATASETS = ['A', 'B', 'C']
+
 
 TRANSFORMS = transforms.Compose([
     transforms.ColorJitter(0.2, 0.2, 0.2, 0.2),
@@ -95,23 +92,6 @@ import torchvision
 
 device = torch.device('cuda')
 
-# ALEXNET
-# model = torchvision.models.alexnet(weights="IMAGENET1K_V1")
-# model.classifier[-1] = torch.nn.Linear(4096, len(dataset.categories))
-
-# SQUEEZENET 
-# model = torchvision.models.squeezenet1_1(weights="IMAGENET1K_V1")
-# model.classifier[1] = torch.nn.Conv2d(512, len(dataset.categories), kernel_size=1)
-# model.num_classes = len(dataset.categories)
-
-# RESNET 18
-model = torchvision.models.resnet18(weights="IMAGENET1K_V1")
-model.fc = torch.nn.Linear(512, len(dataset.categories))
-
-# RESNET 34
-# model = torchvision.models.resnet34(weights="IMAGENET1K_V1")
-# model.fc = torch.nn.Linear(512, len(dataset.categories))
-    
 model = model.to(device)
 
 model_save_button = ipywidgets.Button(description='save model')
