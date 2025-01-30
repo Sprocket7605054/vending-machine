@@ -12,7 +12,7 @@ const int motorPin2_2 = 11;  // IN2 for Motor 2 (same motor driver)
 
 // Motor control pins for Motor 3 (Motor Driver 2)
 const int motorPin1_3 = 12;  // IN1 on Motor Driver 2
-const int motorPin2_3 = 13;  // IN2 on Motor Driver 2
+const int motorPin2_3 = 7;  // IN2 on Motor Driver 2
 
 
 // Bumper switch input pins for Motor 1, Motor 2, and Motor 3
@@ -47,52 +47,44 @@ void setup() {
   // Ensure all motors are initially stopped (both motor pins LOW)
   digitalWrite(motorPin1_1, LOW);
   digitalWrite(motorPin2_1, LOW);
-
-
   digitalWrite(motorPin1_2, LOW);
   digitalWrite(motorPin2_2, LOW);
-
-
   digitalWrite(motorPin1_3, LOW);
   digitalWrite(motorPin2_3, LOW);
 
-
-  // Print initial status to Serial Monitor
 }
 
 
 void loop()
 {
-  if(digitalRead(bumperPin_1) == LOW)
+  if(digitalRead(bumperPin_1) == LOW) //detect button press
 {
-digitalWrite(motorPin1_1, HIGH);
-delay(1000);
+digitalWrite(motorPin1_1, HIGH);  // rotate motor to open gate
+delay(225);
 digitalWrite(motorPin1_1, LOW);
-digitalWrite(motorPin2_1, HIGH);
-delay(1000);
-digitalWrite(motorPin2_1, LOW);
+digitalWrite(motorPin2_1, HIGH);// reverse direction to close gate
+delay(245);
+digitalWrite(motorPin2_1, LOW);// stop moving
 }
 
-
-if(digitalRead(bumperPin_2) == LOW)
+if(digitalRead(bumperPin_2) == LOW) // repeat for other buttons
   {
-digitalWrite(motorPin1_2, HIGH);
-delay(1000);
+digitalWrite(motorPin1_2, HIGH);   // rotate motor to open gate
+delay(220);
 digitalWrite(motorPin1_2, LOW);
-digitalWrite(motorPin2_2, HIGH);
-delay(1000);
+digitalWrite(motorPin2_2, HIGH);// reverse direction to close gate
+delay(240);
 digitalWrite(motorPin2_2, LOW);
   }
 
 
-if(digitalRead(bumperPin_3) == LOW)
+if(digitalRead(bumperPin_3) == LOW) // detect button press
   {
-digitalWrite(motorPin1_3, HIGH);
-delay(1000);
+digitalWrite(motorPin1_3, HIGH);   // rotate motor to open gate
+delay(250);
 digitalWrite(motorPin1_3, LOW);
-digitalWrite(motorPin2_3, HIGH);
-delay(1000);
+digitalWrite(motorPin2_3, HIGH);  // reverse direction to close gate
+delay(255);
 digitalWrite(motorPin2_3, LOW);
   }
   }
-
